@@ -13,6 +13,10 @@ import (
 	noteDelivery "toDoApp/features/note/delivery"
 	noteUsecase "toDoApp/features/note/usecase"
 
+	agendaData "toDoApp/features/agenda/data"
+	agendaDelivery "toDoApp/features/agenda/delivery"
+	agendaUsecase "toDoApp/features/agenda/usecase"
+
 	"github.com/labstack/echo/v4"
 	"gorm.io/gorm"
 )
@@ -29,4 +33,8 @@ func InitFactory(e *echo.Echo, db *gorm.DB) {
 	noteDataFactory := noteData.New(db)
 	noteUsecaseFactory := noteUsecase.New(noteDataFactory)
 	noteDelivery.New(e, noteUsecaseFactory)
+
+	agendaDataFactory := agendaData.New(db)
+	agendaUsecaseFactory := agendaUsecase.New(agendaDataFactory)
+	agendaDelivery.New(e, agendaUsecaseFactory)
 }

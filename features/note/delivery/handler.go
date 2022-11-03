@@ -56,7 +56,7 @@ func (delivery *NoteDelivery) GetNoteByID(c echo.Context) error {
 		return c.JSON(500, helper.FailedResponseHelper("error get data"))
 	}
 
-	return c.JSON(201, helper.SuccessDataResponseHelper("success insert data", data))
+	return c.JSON(201, helper.SuccessDataResponseHelper("success get data", data))
 }
 
 func (delivery *NoteDelivery) GetNote(c echo.Context) error {
@@ -67,7 +67,7 @@ func (delivery *NoteDelivery) GetNote(c echo.Context) error {
 		return c.JSON(500, helper.FailedResponseHelper("error get data"))
 	}
 
-	return c.JSON(201, helper.SuccessDataResponseHelper("success insert data", fromCoreList(data)))
+	return c.JSON(201, helper.SuccessDataResponseHelper("success get data", fromCoreList(data)))
 }
 
 func (delivery *NoteDelivery) PutNote(c echo.Context) error {
